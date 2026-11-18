@@ -42,7 +42,7 @@ a{color:var(--accent)}
 @media (max-width:899px){.hide-m{display:none!important}}
 
 /* ---------- โครงหลัก ---------- */
-.app{min-height:100vh;min-height:100dvh;display:grid;gap:8px;padding:8px;
+.app{min-height:100vh;min-height:100dvh;display:grid;gap:8px;padding:16px;
   grid-template-columns:minmax(0,1fr);
   grid-template-rows:auto auto minmax(0,1fr) auto;
   grid-template-areas:"top" "view" "panel" "tabs"}
@@ -56,8 +56,10 @@ a{color:var(--accent)}
 @media (min-width:900px){
   .app{height:100vh;height:100dvh;min-height:640px;overflow:hidden;grid-template-columns:304px minmax(0,1fr) 304px;
     grid-template-rows:auto minmax(0,1fr) clamp(304px,40vh,368px);
-    grid-template-areas:"top top top" "lib view insp" "tl tl tl"}
-  .tabs{display:none}
+    grid-template-areas:"top top top" "lib view insp" "tl tl tl";padding:12px}
+  /* each pane gets its own area on wide screens (the shared "panel" area exists only on phones) */
+  .lib{grid-area:lib}.insp{grid-area:insp}.tl{grid-area:tl}
+  .app .tabs{display:none}
 }
 
 .top{display:flex;align-items:center;justify-content:space-between;gap:8px;min-width:0}
